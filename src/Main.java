@@ -17,9 +17,10 @@ public class Main {
 
         while (true) {
             System.out.println("Bank Management System Menu:");
-            System.out.println("1. Admin Menu");
-            System.out.println("2. Customer Menu");
-            System.out.println("3. Exit");
+            System.out.println("1. Add New Customer");
+            System.out.println("2. Admin Menu");
+            System.out.println("3. Customer Menu");
+            System.out.println("4. Exit");
 
             System.out.print("Enter your choice: ");
             Scanner scanner = new Scanner(System.in);
@@ -27,10 +28,35 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    adminMenu(admin, customers);
+                    boolean isTaken;
+                    String custName;
+                    int custID;
+                    System.out.print("Enter Customer Name:");
+                    custName = scanner.next();
+                    do {
+                        isTaken = false; // Set isTaken to false at the beginning of each iteration
+                        System.out.print("Enter Custom ID:");
+                        custID = scanner.nextInt();
+                        for (Customer currCust : customers) {
+                            if (currCust.getId() == custID) {
+                                isTaken = true; // Set isTaken to true if the ID is already taken
+                                break;
+                            }
+                        }
+                        if (isTaken) {
+                            System.out.println("Customer ID is already taken. Please choose a different one.");
+                        }
+                    } while (isTaken);
+
+                    customers.add(new Customer(custID, custName));
+                    System.out.print("Customer Created Successfully!\n");
                     break;
 
                 case 2:
+                    adminMenu(admin, customers);
+                    break;
+
+                case 3:
                     // Switch to the customer menu based on the customer's ID
                     System.out.print("Enter customer ID: ");
                     int customerID = scanner.nextInt();
@@ -42,7 +68,7 @@ public class Main {
                     }
                     break;
 
-                case 3:
+                case 4:
                     System.out.println("Exiting the Bank Management System.");
                     System.exit(0);
                     break;
@@ -111,9 +137,12 @@ public class Main {
                 case 6:
                     System.out.print("Enter category to browse: ");
                     int category = admin.getScanner().nextInt();
-                    List<BankAccount> categoryAccounts = admin.getAccountsByCategory(category);
-                    for (BankAccount account : categoryAccounts) {
-                        account.printAccountActivities();
+                    List<BankAccount> categoryAccounts = admin.getAccountsByCategory(category, customers);
+                    System.out.print("Accounts that belong to category: "+category+"\n");
+                    for (BankAccount account : categoryAccounts)
+                    {
+                        System.out.print("Account number: "+account.getAccountNumber()+"\n");
+                        System.out.print("\n");
                     }
                     break;
 
@@ -127,7 +156,7 @@ public class Main {
     }
 
     public static void customerMenu(Customer customer) {
-        while (true) {
+        while (true) { //add view records, applying for a loan, view detailed activity of EACH ACCOUNT
             System.out.println("Customer Menu:");
             System.out.println("1. View Available Accounts");
             System.out.println("2. Search Accounts");
@@ -136,7 +165,8 @@ public class Main {
             System.out.println("5. Deposit Money");
             System.out.println("6. Withdraw Money");
             System.out.println("7. View Favorite Accounts");
-            System.out.println("8. Back to Main Menu");
+            System.out.println("8. Transfer Between Accounts");
+            System.out.println("9. Back to Main Menu");
 
             System.out.print("Enter your choice: ");
             int choice = customer.getScanner().nextInt(); // Use customer's scanner
@@ -178,6 +208,10 @@ public class Main {
                     break;
 
                 case 8:
+                    customer.transferBetweenAccounts();
+                    break;
+
+                case 9:
                     return; // Return to the main menu
 
                 default:

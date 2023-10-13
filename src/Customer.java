@@ -130,5 +130,40 @@ public class Customer {
         return favoriteAccounts;
     }
 
+    public void transferBetweenAccounts() {
+        Scanner scanner = getScanner();
+
+        // Prompt the user to enter the source account number
+        System.out.print("Enter the source account number: ");
+        int sourceAccountNumber = scanner.nextInt();
+
+        // Prompt the user to enter the target account number
+        System.out.print("Enter the target account number: ");
+        int targetAccountNumber = scanner.nextInt();
+
+        // Find the source and target accounts by their account numbers
+        BankAccount sourceAccount = BankAccount.getBankAccountByNumber(bankAccounts, sourceAccountNumber);
+        BankAccount targetAccount = BankAccount.getBankAccountByNumber(bankAccounts, targetAccountNumber);
+
+        if (sourceAccount != null && targetAccount != null) {
+            System.out.print("Enter the amount to transfer from Account " + sourceAccount.getAccountNumber()
+                    + " to Account " + targetAccount.getAccountNumber() + ": ");
+            double amount = scanner.nextDouble();
+
+            // Ensure that the transfer amount is positive and doesn't exceed the source account balance
+            if (amount > 0 && sourceAccount.getBalance() >= amount) {
+                sourceAccount.withdraw(amount);
+                targetAccount.deposit(amount);
+                System.out.println("Transfer completed.");
+            } else {
+                System.out.println("Invalid transfer amount or insufficient balance.");
+            }
+        } else {
+            System.out.println("One or both accounts do not belong to the customer or do not exist.");
+        }
+    }
+
+
+
 }
 

@@ -112,7 +112,15 @@ class Admin {
         int type = scanner.nextInt();
 
         // Check if the provided account type number already exists
-        boolean accountTypeExists = accountTypes.stream().anyMatch(at -> at.getType() == type);
+        boolean accountTypeExists = false;
+        for(BankAccountType currType: accountTypes)
+        {
+            if(type == currType.getType())
+            {
+                accountTypeExists = true;
+                break;
+            }
+        }
 
         if (accountTypeExists) {
             System.out.println("Account type number already exists. Please choose a different number.");
@@ -143,11 +151,14 @@ class Admin {
         System.out.println("Account type not found.");
     }
 
-    public List<BankAccount> getAccountsByCategory(int category) {
+    public List<BankAccount> getAccountsByCategory(int category, List<Customer> customers) {
         List<BankAccount> categoryAccounts = new ArrayList<>();
-        for (BankAccount account : accounts) {
-            if (account.getAccountType() == category) {
-                categoryAccounts.add(account);
+        for(Customer customer:customers)
+        {
+            for (BankAccount account : customer.getAvailableBankAccounts()) {
+                if (account.getAccountType() == category) {
+                    categoryAccounts.add(account);
+                }
             }
         }
         return categoryAccounts;

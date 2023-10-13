@@ -45,7 +45,7 @@ class BankAccount {
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            addActivity("Deposit: " + amount);
+            addActivity("Deposit: " + amount); // Logging the deposit activity
         } else {
             System.out.println("Invalid deposit amount.");
         }
@@ -54,13 +54,23 @@ class BankAccount {
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
-            addActivity("Withdrawal: " + amount);
+            addActivity("Withdrawal: " + amount); // Logging the withdrawal activity
         } else if (amount <= 0) {
             System.out.println("Invalid withdrawal amount.");
         } else {
             System.out.println("Insufficient balance for withdrawal.");
         }
     }
+
+    public static BankAccount getBankAccountByNumber(List<BankAccount> accounts, int accountNumber) {
+        for (BankAccount account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                return account;
+            }
+        }
+        return null;
+    }
+
 
     public int getAccountType() {
         return accountType;
