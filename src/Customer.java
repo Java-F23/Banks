@@ -84,6 +84,23 @@ public class Customer {
         }
     }
 
+    public void viewAllRecords() {
+        for(BankAccount account : bankAccounts)
+        {
+            System.out.println("Account Number: " + account.getAccountNumber());
+            System.out.println("Account Type: " + account.getAccountType());
+            System.out.println("Balance: " + account.getBalance());
+            System.out.println("Activity Log:");
+            account.printAccountActivities();
+            System.out.println("\n");
+        }
+        System.out.println("\n");
+    }
+
+    public void viewAccountRecords(BankAccount account) {
+        account.printAccountActivities();
+    }
+
     public void viewAccountDetails(BankAccount account) {
         if (account != null) {
             System.out.println("Account Number: " + account.getAccountNumber());
@@ -162,8 +179,5 @@ public class Customer {
             System.out.println("One or both accounts do not belong to the customer or do not exist.");
         }
     }
-
-
-
 }
 

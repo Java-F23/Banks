@@ -156,7 +156,7 @@ public class Main {
     }
 
     public static void customerMenu(Customer customer) {
-        while (true) { //add view records, applying for a loan, view detailed activity of EACH ACCOUNT
+        while (true) { //applying for a loan na2sa
             System.out.println("Customer Menu:");
             System.out.println("1. View Available Accounts");
             System.out.println("2. Search Accounts");
@@ -166,7 +166,10 @@ public class Main {
             System.out.println("6. Withdraw Money");
             System.out.println("7. View Favorite Accounts");
             System.out.println("8. Transfer Between Accounts");
-            System.out.println("9. Back to Main Menu");
+            System.out.println("9. View All Activities");
+            System.out.println("10. View Activity of An Account");
+//            System.out.println("11. Apply For A Loan");
+            System.out.println("12. Back to Main Menu");
 
             System.out.print("Enter your choice: ");
             int choice = customer.getScanner().nextInt(); // Use customer's scanner
@@ -212,6 +215,15 @@ public class Main {
                     break;
 
                 case 9:
+                    customer.viewAllRecords();
+                    break;
+
+                case 10:
+                    BankAccount acc = customer.getBankAccountByNumber();
+                    customer.viewAccountRecords(acc);
+                    break;
+
+                case 12:
                     return; // Return to the main menu
 
                 default:
