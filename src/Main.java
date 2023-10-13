@@ -135,7 +135,8 @@ public class Main {
             System.out.println("4. Mark Account as Favorite");
             System.out.println("5. Deposit Money");
             System.out.println("6. Withdraw Money");
-            System.out.println("7. Back to Main Menu");
+            System.out.println("7. View Favorite Accounts");
+            System.out.println("8. Back to Main Menu");
 
             System.out.print("Enter your choice: ");
             int choice = customer.getScanner().nextInt(); // Use customer's scanner
@@ -143,12 +144,12 @@ public class Main {
             switch (choice) {
                 case 1:
                     List<BankAccount> availableAccounts = customer.getAvailableBankAccounts();
-                    customer.displayAvailableAccounts(availableAccounts);
+                    customer.displayAccounts(availableAccounts);
                     break;
 
                 case 2:
                     List<BankAccount> matchingAccounts = customer.searchBankAccountsByFilter();
-                    customer.displayMatchingAccounts(matchingAccounts);
+                    customer.displayAccounts(matchingAccounts);
                     break;
 
                 case 3:
@@ -172,6 +173,11 @@ public class Main {
                     break;
 
                 case 7:
+                    List<BankAccount> favoriteAccounts = customer.getFavoriteAccounts();
+                    customer.displayAccounts(favoriteAccounts);
+                    break;
+
+                case 8:
                     return; // Return to the main menu
 
                 default:
