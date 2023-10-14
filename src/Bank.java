@@ -3,16 +3,20 @@ import java.util.List;
 
 public class Bank {
 
+    private String bankName;
+    private String address;
     private List<Admin> admins;
     private List<Customer> customers;
     private List<BankAccount> accounts;
     private List<Loan> loans;
 
-    public Bank() {
+    public Bank(String name, String location) {
         this.customers = new ArrayList<>();
         this.accounts = new ArrayList<>();
         this.loans = new ArrayList<>();
         this.admins = new ArrayList<>();
+        this.bankName = name;
+        this.address = location;
     }
 
     // Methods for managing customers

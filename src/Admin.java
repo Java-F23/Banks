@@ -105,7 +105,9 @@ class Admin {
     public void generateReports() {
         System.out.println("Account Number\tBalance");
         for (BankAccount account : accounts) {
-            System.out.println(account.getAccountNumber() + "       \t" + account.getBalance());
+            System.out.println(account.getAccountNumber() + "       \t" + account.getBalance()+ "       \t");
+            account.printAccountActivities();
+            System.out.print("\n");
         }
 
         int totalAccounts = accounts.size();
