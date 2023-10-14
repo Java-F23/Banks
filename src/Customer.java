@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,6 +9,8 @@ public class Customer {
     private List<BankAccount> bankAccounts;
     private List<BankAccount> favoriteAccounts;
 
+    private List<Loan> loanApplications;
+
     private Scanner scanner;
 
     public Customer(int id, String name) {
@@ -16,6 +19,7 @@ public class Customer {
         this.bankAccounts = new ArrayList<>();
         this.favoriteAccounts = new ArrayList<>();
         this.scanner = new Scanner(System.in); // Initialize the Scanner for the customer
+        loanApplications = new ArrayList<>();
     }
 
     public Scanner getScanner() {
@@ -124,9 +128,14 @@ public class Customer {
 
     public void depositToAccount(BankAccount account) {
         if (account != null) {
-            System.out.print("Enter the amount to deposit: ");
-            double amount = getScanner().nextDouble();
-            account.deposit(amount);
+            try {
+                System.out.print("Enter the amount to deposit: ");
+                double amount = getScanner().nextDouble();
+                account.deposit(amount);
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid amount.");
+                getScanner().nextLine(); // Consume the invalid input
+            }
         } else {
             System.out.println("Account not found.");
         }
@@ -134,9 +143,14 @@ public class Customer {
 
     public void withdrawFromAccount(BankAccount account) {
         if (account != null) {
-            System.out.print("Enter the amount to withdraw: ");
-            double amount = getScanner().nextDouble();
-            account.withdraw(amount);
+            try {
+                System.out.print("Enter the amount to withdraw: ");
+                double amount = getScanner().nextDouble();
+                account.withdraw(amount);
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid amount.");
+                getScanner().nextLine(); // Consume the invalid input
+            }
         } else {
             System.out.println("Account not found.");
         }
@@ -177,6 +191,54 @@ public class Customer {
             }
         } else {
             System.out.println("One or both accounts do not belong to the customer or do not exist.");
+        }
+    }
+
+    public void applyForLoan(Loan loan) {
+        loanApplications.add(loan);
+        System.out.println("Loan application submitted. Loan ID: " + loan.getLoanID());
+    }
+
+    public void applyForLoan(Bank bank) {
+        Scanner scanner = getScanner();
+        try {
+            System.out.print("Enter the loan amount: ");
+            double loanAmount = scanner.nextDouble();
+
+            System.out.print("Enter the loan term (in months): ");
+            int loanTerm = scanner.nextInt();
+
+            System.out.print("Enter the interest rate: ");
+            double interestRate = scanner.nextDouble();
+
+            // Create a new loan
+            Loan loan = new Loan(loanAmount, loanTerm, interestRate, getId());
+
+            // Add the loan to the bank
+            bank.addLoan(loan);
+
+            // Inform the customer that the loan application was successful
+            System.out.println("Loan application submitted successfully.");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter valid loan details.");
+            scanner.nextLine(); // Consume the invalid input
+        }
+    }
+
+
+    public List<Loan> getLoanApplications() {
+        return loanApplications;
+    }
+
+    public void viewLoanApplications() {
+        System.out.println("Loan Applications:");
+        for (Loan loan : loanApplications) {
+            System.out.println("Loan ID: " + loan.getLoanID());
+            System.out.println("Loan Amount: " + loan.getLoanAmount());
+            System.out.println("Loan Term: " + loan.getLoanTerm() + " months");
+            System.out.println("Interest Rate: " + loan.getInterestRate() + "%");
+            System.out.println("Status: " + loan.getStatus());
+            System.out.println();
         }
     }
 }

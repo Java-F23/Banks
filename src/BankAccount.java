@@ -43,24 +43,33 @@ class BankAccount {
     }
 
     public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            addActivity("Deposit: " + amount); // Logging the deposit activity
-        } else {
-            System.out.println("Invalid deposit amount.");
+        try {
+            if (amount > 0) {
+                balance += amount;
+                addActivity("Deposit: " + amount); // Logging the deposit activity
+            } else {
+                System.out.println("Invalid deposit amount.");
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred during the deposit.");
         }
     }
 
     public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            addActivity("Withdrawal: " + amount); // Logging the withdrawal activity
-        } else if (amount <= 0) {
-            System.out.println("Invalid withdrawal amount.");
-        } else {
-            System.out.println("Insufficient balance for withdrawal.");
+        try {
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                addActivity("Withdrawal: " + amount); // Logging the withdrawal activity
+            } else if (amount <= 0) {
+                System.out.println("Invalid withdrawal amount.");
+            } else {
+                System.out.println("Insufficient balance for withdrawal.");
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred during the withdrawal.");
         }
     }
+
 
     public static BankAccount getBankAccountByNumber(List<BankAccount> accounts, int accountNumber) {
         for (BankAccount account : accounts) {
