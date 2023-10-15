@@ -1,4 +1,4 @@
-# Banks
+# Bank System
 Banking System in implemented in Java
 
 Sprint 1: (1/10/2023 -> 15/10/2023):
