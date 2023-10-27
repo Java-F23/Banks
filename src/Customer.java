@@ -13,6 +13,16 @@ public class Customer {
 
     private Scanner scanner;
 
+    public Customer()
+    {
+        id = 0;
+        name = "";
+        bankAccounts = new ArrayList<>();
+        favoriteAccounts = new ArrayList<>();
+        scanner = new Scanner(System.in); // Initialize the Scanner for the customer
+        loanApplications = new ArrayList<>();
+    }
+
     public Customer(int id, String name) {
         this.id = id;
         this.name = name;

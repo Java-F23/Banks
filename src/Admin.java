@@ -4,11 +4,15 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 class Admin {
-    private List<BankAccount> accounts;
-    private List<BankAccountType> accountTypes;
+    private int id;
+    private String name;
+    private ArrayList<BankAccount> accounts;
+    private ArrayList<BankAccountType> accountTypes;
     private Scanner scanner;
 
     public Admin() {
+        name = "ADMIN 1";
+        id = 0;
         accounts = new ArrayList<>();
         accountTypes = new ArrayList<>();
         scanner = new Scanner(System.in);
@@ -18,43 +22,58 @@ class Admin {
         return scanner;
     }
 
-    public BankAccount createNewAccount(int customerID) {
-        System.out.println("Available Account Types:");
-        for (BankAccountType type : accountTypes) {
-            System.out.println(type.getType() + ": " + type.getName());
-        }
+    public String getName()
+    {
+        return name;
+    }
 
-        try {
-            System.out.print("Enter account type: ");
-            int accountType = scanner.nextInt();
+    public ArrayList<BankAccount> getBankAccounts()
+    {
+        return accounts;
+    }
 
-            // Check if the entered account type is valid
-            boolean validAccountType = false;
-            for (BankAccountType type : accountTypes) {
-                if (type.getType() == accountType) {
-                    validAccountType = true;
-                    break;
-                }
-            }
+    public ArrayList<BankAccountType> getBankAccountTypes()
+    {
+        return accountTypes;
+    }
 
-            if (!validAccountType) {
-                System.out.println("Invalid account type. Account creation failed.");
-                return null;
-            }
-
-            System.out.print("Enter initial balance: ");
-            double initialBalance = scanner.nextDouble();
+    public BankAccount createNewAccount(int accountType, int balance, int customerID) {
+//        System.out.println("Available Account Types:");
+//        for (BankAccountType type : accountTypes) {
+//            System.out.println(type.getType() + ": " + type.getName());
+//        }
+//
+//        try {
+//            System.out.print("Enter account type: ");
+//            int accountType = scanner.nextInt();
+//
+//            // Check if the entered account type is valid
+//            boolean validAccountType = false;
+//            for (BankAccountType type : accountTypes) {
+//                if (type.getType() == accountType) {
+//                    validAccountType = true;
+//                    break;
+//                }
+//            }
+//
+//            if (!validAccountType) {
+//                System.out.println("Invalid account type. Account creation failed.");
+//                return null;
+//            }
+//
+//            System.out.print("Enter initial balance: ");
+//            double initialBalance = scanner.nextDouble();
 
             // Create a new account with the specified account type
-            BankAccount newAccount = new BankAccount(accountType, initialBalance, customerID);
+            BankAccount newAccount = new BankAccount(accountType, balance, customerID);
             accounts.add(newAccount);
             System.out.println("Account created with account number: " + newAccount.getAccountNumber());
             return newAccount;
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a valid number.");
-            scanner.nextLine(); // Consume the invalid input
-            return null;
-        }
+//        } catch (InputMismatchException e) {
+//            System.out.println("Invalid input. Please enter a valid number.");
+//            scanner.nextLine(); // Consume the invalid input
+//            return null;
+//        }
     }
 
     public void updateAccountDetails() {

@@ -42,6 +42,10 @@ class BankAccount {
         }
     }
 
+    public List<String> getAccountActivities() {
+        return activityLog;
+    }
+
     public void deposit(double amount) {
         try {
             if (amount > 0) {
