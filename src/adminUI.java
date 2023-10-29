@@ -2,45 +2,47 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class adminUI extends mainUI{
+public class adminUI extends JFrame {
 
     private Admin currAdmin;
     private ArrayList<Customer> allCusts;
+    private int height;
+    private int width;
+    private JPanel mainPanel;
 
-    public adminUI()
-    {
-        title = "";
+    public adminUI() {
+        setTitle("");
         width = 400;
         height = 400;
-        this.setSize(400,400);
+        this.setSize(400, 400);
         mainPanel = new JPanel();
         currAdmin = new Admin();
         allCusts = new ArrayList<Customer>();
+        setResizable(false);
     }
 
-    public adminUI(String frameName, int h, int w, Admin admin, ArrayList<Customer> customers)
-    {
+    public adminUI(String frameName, int h, int w, Admin admin, ArrayList<Customer> customers) {
         allCusts = customers;
         mainPanel = new JPanel();
-        title = frameName;
-        setTitle(title);
+        setTitle(frameName);
         width = w;
         height = h;
-        this.setSize(w,h);
+        this.setSize(width, height);
+        setResizable(false);
         currAdmin = admin;
-        JLabel welcomeMessage = new JLabel("Hello "+currAdmin.getName());
+        JLabel welcomeMessage = new JLabel("Hello " + currAdmin.getName()+"!");
+        welcomeMessage.setFont(new Font("Arial", Font.BOLD, 20));
         welcomeMessage.setHorizontalAlignment(JLabel.CENTER);
 
-        JButton addCustomerButton = new JButton("Add New Customer");
-        JButton createAccountButton = new JButton("Create New Account");
-        JButton updateAccountButton = new JButton("Update Account Details");
-        JButton generateReportsButton = new JButton("Generate Reports");
-        JButton addAccountTypeButton = new JButton("Add Account Type");
-        JButton removeAccountTypeButton = new JButton("Remove Account Type");
-        JButton browseAccountsButton = new JButton("Browse Accounts by Category");
+        JButton addCustomerButton = createStyledButton("Add New Customer");
+        JButton createAccountButton = createStyledButton("Create New Account");
+        JButton updateAccountButton = createStyledButton("Update Account Details");
+        JButton generateReportsButton = createStyledButton("Generate Reports");
+        JButton addAccountTypeButton = createStyledButton("Add Account Type");
+        JButton removeAccountTypeButton = createStyledButton("Remove Account Type");
+        JButton browseAccountsButton = createStyledButton("Browse Accounts by Category");
 
         addCustomerButton.addActionListener(new ActionListener() {
             @Override
@@ -99,7 +101,7 @@ public class adminUI extends mainUI{
         });
 
         // Add components to the main panel
-        mainPanel.setLayout(new GridLayout(8, 1)); // Increased the grid size
+        mainPanel.setLayout(new GridLayout(8, 1, 0, 10)); // Increased the grid size and added vertical gap
         mainPanel.add(welcomeMessage);
         mainPanel.add(addCustomerButton); // Add the new customer button
         mainPanel.add(createAccountButton);
@@ -113,9 +115,6 @@ public class adminUI extends mainUI{
         this.add(mainPanel);
 
         this.setLocationRelativeTo(null);
-//        mainPanel.add(welcomeMessage);
-//        this.add(mainPanel);
-//        this.setLocationRelativeTo(null);
     }
 
     // Method to display a dialog for adding a new customer
@@ -161,13 +160,13 @@ public class adminUI extends mainUI{
             }
         }
     }
+
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
         button.setBackground(new Color(66, 134, 244)); // Background color
         button.setForeground(Color.WHITE); // Text color
         button.setFont(new Font("Arial", Font.BOLD, 16));
         button.setFocusPainted(false); // Remove focus border
-        button.setBorderPainted(false); // Remove border
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // Change cursor to hand on hover
         return button;
     }

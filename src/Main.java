@@ -10,7 +10,7 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         Bank bank = new Bank("QNU", "Maadi");
-        Admin admin = new Admin();
+        Admin admin = new Admin("Mohamed Hashish", 2);
         bank.addAdmin(admin);
         Customer customer1 = new Customer(1, "John Doe");
         Customer customer2 = new Customer(2, "Jane Smith");
@@ -22,28 +22,18 @@ public class Main {
         admin.addAccountType(1, "Savings Account", "Interest-bearing account");
         admin.addAccountType(2, "Checking Account", "No interest");
         admin.addAccountType(3, "Business Account", "For business use");
-        mainUI mainWindow = new mainUI("Main Window", 400, 400, admin, customers);
+        mainUI mainWindow = new mainUI("Main Window", 150, 600, admin, customers);
 //        adminUI adminWindow = new adminUI("Admin Section", 400, 400, admin);
 //        customerUI custWindow = new customerUI("Customer Section", 400, 400, customer1); //change it later so that each cutomer is sent after logging in
 //        SwingUtilities.invokeLater(()-> {
         mainWindow.setVisible(true);
-        JButton closeWelcome = new JButton("Close");
-        JFrame welcomeFrame = new JFrame("Welcome!");
+        mainWindow.setResizable(false);
         JPanel welcomePanel = new JPanel();
         JLabel welcomeMessage = new JLabel("Welcome to the Banking Java App!");
-        closeWelcome.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    welcomeFrame.setVisible(false);
-                }
-        });
         welcomeMessage.setHorizontalAlignment(JLabel.CENTER);
         welcomePanel.add(welcomeMessage);
-        welcomePanel.add(closeWelcome);
-        welcomeFrame.add(welcomePanel);
-        welcomeFrame.setSize(300,80);
-        welcomeFrame.setLocationRelativeTo(null); // Center the frame on the screen
-        welcomeFrame.setVisible(true);
+// Use a JOptionPane to create a dialog
+        JOptionPane.showMessageDialog(null, welcomePanel, "Welcome!", JOptionPane.PLAIN_MESSAGE);
 //        });
 
 //        while (true) {

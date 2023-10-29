@@ -58,7 +58,7 @@ public class createAccountUI extends JFrame {
                 } else {
                     // Create the bank account using admin and the provided data
                     BankAccount newAcc = admin.createNewAccount(selectedAccountType + 1, initialBalance, customerId);
-
+                    customer.addBankAccount(newAcc);
                     // Display a success message using JOptionPane
                     JOptionPane.showMessageDialog(createAccountUI.this, "Account created successfully!\nAccount Number: "+newAcc.getAccountNumber());
 

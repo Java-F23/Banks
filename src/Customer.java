@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Customer {
     private int id;
     private String name;
-    private List<BankAccount> bankAccounts;
-    private List<BankAccount> favoriteAccounts;
+    private ArrayList<BankAccount> bankAccounts;
+    private ArrayList<BankAccount> favoriteAccounts;
 
     private List<Loan> loanApplications;
 
@@ -48,20 +48,20 @@ public class Customer {
         bankAccounts.add(bankAccount);
     }
 
-    public List<BankAccount> getAvailableBankAccounts() {
+    public ArrayList<BankAccount> getAvailableBankAccounts() {
         return bankAccounts;
     }
 
-    public List<BankAccount> searchBankAccountsByFilter() {
+    public List<BankAccount> searchBankAccountsByFilter(int accountType, double minBalance, double maxBalance) {
         // Implement search functionality based on account type, balance, etc.
         // Modify this method as needed to match your requirements.
         // For example:
-        System.out.print("Enter account type (-1 for any): ");
-        int accountType = getScanner().nextInt();
-        System.out.print("Enter minimum balance: ");
-        double minBalance = getScanner().nextDouble();
-        System.out.print("Enter maximum balance: ");
-        double maxBalance = getScanner().nextDouble();
+//        System.out.print("Enter account type (-1 for any): ");
+//        int accountType = getScanner().nextInt();
+//        System.out.print("Enter minimum balance: ");
+//        double minBalance = getScanner().nextDouble();
+//        System.out.print("Enter maximum balance: ");
+//        double maxBalance = getScanner().nextDouble();
 
         List<BankAccount> matchingAccounts = new ArrayList<>();
         for (BankAccount account : bankAccounts) {

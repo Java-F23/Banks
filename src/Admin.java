@@ -11,8 +11,16 @@ class Admin {
     private Scanner scanner;
 
     public Admin() {
-        name = "ADMIN 1";
-        id = 0;
+        name = "Admin 1";
+        id = 1;
+        accounts = new ArrayList<>();
+        accountTypes = new ArrayList<>();
+        scanner = new Scanner(System.in);
+    }
+
+    public Admin(String name, int id) {
+        this.name = name;
+        this.id = id;
         accounts = new ArrayList<>();
         accountTypes = new ArrayList<>();
         scanner = new Scanner(System.in);

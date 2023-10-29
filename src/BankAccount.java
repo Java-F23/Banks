@@ -59,19 +59,23 @@ class BankAccount {
         }
     }
 
-    public void withdraw(double amount) {
+    public int withdraw(double amount) {
         try {
             if (amount > 0 && amount <= balance) {
                 balance -= amount;
                 addActivity("Withdrawal: " + amount); // Logging the withdrawal activity
+                return 1;
             } else if (amount <= 0) {
                 System.out.println("Invalid withdrawal amount.");
+                return 0;
             } else {
                 System.out.println("Insufficient balance for withdrawal.");
+                return 0;
             }
         } catch (Exception e) {
             System.out.println("An error occurred during the withdrawal.");
         }
+        return 0;
     }
 
 

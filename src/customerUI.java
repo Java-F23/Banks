@@ -3,146 +3,155 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class customerUI extends mainUI{
+public class customerUI extends JFrame{
     //private buttons
 
     private Customer currCustomer;
+    private JPanel mainPanel;
+    private int height;
+    private int width;
 
     public customerUI()
     {
-        title = "";
+        setTitle("");
         width = 400;
         height = 400;
         mainPanel = new JPanel();
         currCustomer = new Customer();
+        setResizable(false);
+
     }
 
     public customerUI(String frameName, int h, int w, Customer cust)
     {
+        currCustomer = cust;
         mainPanel = new JPanel();
-        title = frameName;
-        setTitle(title);
+        setTitle(frameName);
         width = w;
         height = h;
-        this.setSize(w,h);
-        currCustomer = cust;
-        // Create buttons for each option
-        JButton viewAccountsButton = new JButton("View Available Accounts");
-        JButton searchAccountsButton = new JButton("Search Accounts");
-        JButton viewAccountDetailsButton = new JButton("View Account Details");
-        JButton markFavoriteButton = new JButton("Mark Account as Favorite");
-        JButton depositMoneyButton = new JButton("Deposit Money");
-        JButton withdrawMoneyButton = new JButton("Withdraw Money");
-        JButton viewFavoriteAccountsButton = new JButton("View Favorite Accounts");
-        JButton transferBetweenAccountsButton = new JButton("Transfer Between Accounts");
-        JButton viewAllActivitiesButton = new JButton("View All Activities");
-        JButton viewActivityButton = new JButton("View Activity of An Account");
-        JButton applyForLoanButton = new JButton("Apply For A Loan");
-        JButton backToMainMenuButton = new JButton("Back to Main Menu");
+        this.setSize(width, height);
+        setResizable(false);
+        mainPanel.setLayout(new GridLayout(12, 1, 0, 10));
+        mainPanel.setBackground(new Color(240, 240, 240));
+        // Create a label to display customer information
+        JLabel customerInfoLabel = new JLabel("Welcome, " + cust.getName() + " (ID: " + cust.getId() + ")");
+        customerInfoLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        customerInfoLabel.setHorizontalAlignment(JLabel.CENTER);
+        mainPanel.add(customerInfoLabel);
 
-        mainPanel.setLayout(new GridLayout(12, 1));
-        mainPanel.add(viewAccountsButton);
-        mainPanel.add(searchAccountsButton);
-        mainPanel.add(viewAccountDetailsButton);
-        mainPanel.add(markFavoriteButton);
-        mainPanel.add(depositMoneyButton);
-        mainPanel.add(withdrawMoneyButton);
-        mainPanel.add(viewFavoriteAccountsButton);
-        mainPanel.add(transferBetweenAccountsButton);
-        mainPanel.add(viewAllActivitiesButton);
-        mainPanel.add(viewActivityButton);
-        mainPanel.add(applyForLoanButton);
-        mainPanel.add(backToMainMenuButton);
+        // Create buttons with a consistent style
+        JButton[] buttons = {
+                createStyledButton("View Available Accounts"),
+                createStyledButton("Search Accounts"),
+                createStyledButton("View Account Details"),
+                createStyledButton("Mark Account as Favorite"),
+                createStyledButton("Deposit Money"),
+                createStyledButton("Withdraw Money"),
+                createStyledButton("View Favorite Accounts"),
+                createStyledButton("Transfer Between Accounts"),
+                createStyledButton("View All Activities"),
+                createStyledButton("View Activity of An Account"),
+                createStyledButton("Apply For A Loan")
+        };
 
-        // Add the main panel to the frame
+        for (JButton button : buttons) {
+            mainPanel.add(button);
+        }
+
         this.add(mainPanel);
-
         this.setLocationRelativeTo(null);
-
 // Add action listeners for the buttons
-        viewAccountsButton.addActionListener(new ActionListener() {
+        buttons[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for viewing available accounts
+                allAccountsUI viewAccs = new allAccountsUI(currCustomer);
+                viewAccs.setVisible(true);
             }
         });
 
-        searchAccountsButton.addActionListener(new ActionListener() {
+        buttons[1].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for searching accounts
+                searchAccountsUI searchUI = new searchAccountsUI(currCustomer);
+                searchUI.setVisible(true);
             }
         });
 
-        viewAccountDetailsButton.addActionListener(new ActionListener() {
+        buttons[2].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Implement the action for viewing account details
             }
         });
 
-        markFavoriteButton.addActionListener(new ActionListener() {
+        buttons[3].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for marking an account as a favorite
+                markFavoriteAccountUI markAcc = new markFavoriteAccountUI(currCustomer);
+                markAcc.setVisible(true);
             }
         });
 
-        depositMoneyButton.addActionListener(new ActionListener() {
+        buttons[4].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for depositing money
+                depositUI deposit = new depositUI(currCustomer);
+                deposit.setVisible(true);
             }
         });
 
-        withdrawMoneyButton.addActionListener(new ActionListener() {
+        buttons[5].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for withdrawing money
+                withdrawUI withdraw = new withdrawUI(currCustomer);
+                withdraw.setVisible(true);
             }
         });
 
-        viewFavoriteAccountsButton.addActionListener(new ActionListener() {
+        buttons[6].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for viewing favorite accounts
+                favoriteAccsUI favAccs = new favoriteAccsUI(currCustomer);
+                favAccs.setVisible(true);
             }
         });
 
-        transferBetweenAccountsButton.addActionListener(new ActionListener() {
+        buttons[7].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Implement the action for transferring between accounts
             }
         });
 
-        viewAllActivitiesButton.addActionListener(new ActionListener() {
+        buttons[8].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Implement the action for viewing all activities
             }
         });
 
-        viewActivityButton.addActionListener(new ActionListener() {
+        buttons[9].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Implement the action for viewing activity of an account
             }
         });
 
-        applyForLoanButton.addActionListener(new ActionListener() {
+        buttons[10].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Implement the action for applying for a loan
             }
         });
+    }
 
-        backToMainMenuButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Implement the action for going back to the main menu
-            }
-        });
-
+    private JButton createStyledButton(String text) {
+        JButton button = new JButton(text);
+        button.setBackground(new Color(66, 134, 244)); // Background color
+        button.setForeground(Color.WHITE); // Text color
+        button.setFont(new Font("Arial", Font.BOLD, 16));
+        button.setFocusPainted(false); // Remove focus border
+        button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // Change cursor to hand on hover
+        return button;
     }
 }
