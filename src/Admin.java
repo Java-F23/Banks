@@ -4,11 +4,11 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 class Admin {
-    private int id;
-    private String name;
-    private ArrayList<BankAccount> accounts;
-    private ArrayList<BankAccountType> accountTypes;
-    private Scanner scanner;
+    private final int id;
+    private final String name;
+    private final ArrayList<BankAccount> accounts;
+    private final ArrayList<BankAccountType> accountTypes;
+    private final Scanner scanner;
 
     public Admin() {
         name = "Admin 1";

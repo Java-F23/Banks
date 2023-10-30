@@ -1,7 +1,7 @@
 class BankAccountType {
-    private int type;
-    private String name;
-    private String features;
+    private final int type;
+    private final String name;
+    private final String features;
 
     public BankAccountType(int type, String name, String features) {
         this.type = type;

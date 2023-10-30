@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class removeAccountTypeUI extends JFrame {
-    private JTextField accountTypeField;
-    private JButton removeButton;
+    private final JTextField accountTypeField;
+    private final JButton removeButton;
 
     public removeAccountTypeUI(ArrayList<BankAccountType> accountTypes) {
         setTitle("Remove Account Type");

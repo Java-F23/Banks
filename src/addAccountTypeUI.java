@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class addAccountTypeUI extends JFrame {
-    private JTextField typeField;
-    private JTextField nameField;
-    private JTextField featuresField;
-    private JButton addButton;
+    private final JTextField typeField;
+    private final JTextField nameField;
+    private final JTextField featuresField;
+    private final JButton addButton;
 
-    private ArrayList<BankAccountType> accountTypes;
+    private final ArrayList<BankAccountType> accountTypes;
 
     public addAccountTypeUI(ArrayList<BankAccountType> existingAccountTypes) {
         setTitle("Add Account Type");

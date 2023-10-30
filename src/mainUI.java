@@ -9,10 +9,11 @@ public class mainUI extends JFrame {
     protected int width;
     protected int height;
     protected JPanel mainPanel;
-    private JButton adminUIButton;
-    private JButton customerUIButton;
-    private Admin admin;
-    private ArrayList<Customer> allCustomers;
+    private final JButton adminUIButton;
+    private final JButton customerUIButton;
+    private final Admin admin;
+    private final ArrayList<Customer> allCustomers;
+    private final Bank bank;
 
     public mainUI() {
         title = "";
@@ -24,9 +25,11 @@ public class mainUI extends JFrame {
         admin = new Admin();
         allCustomers = new ArrayList<Customer>();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        bank = new Bank("QNB", "Maadi");
     }
 
-    public mainUI(String frameName, int h, int w, Admin a, ArrayList<Customer> custs) {
+    public mainUI(String frameName, int h, int w, Admin a, ArrayList<Customer> custs, Bank b) {
+        this.bank = b;
         adminUIButton = createStyledButton("Admin App");
         customerUIButton = createStyledButton("Customer App");
         mainPanel = new JPanel();
@@ -73,7 +76,7 @@ public class mainUI extends JFrame {
         customerUIButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loginCustomerUI loginUI = new loginCustomerUI(custs);
+                loginCustomerUI loginUI = new loginCustomerUI(custs, bank);
                 loginUI.setVisible(true);
             }
         });

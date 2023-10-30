@@ -3,11 +3,11 @@ import java.util.List;
 import java.util.Random;
 
 class BankAccount {
-    private int accountNumber;
+    private final int accountNumber;
     private int accountType;
     private double balance;
-    private int customerID; // Add a customer ID field
-    private List<String> activityLog;
+    private final int customerID; // Add a customer ID field
+    private final List<String> activityLog;
 
     public BankAccount(int accountType, double initialBalance, int customerID) {
         this.accountNumber = generateRandomAccountNumber();

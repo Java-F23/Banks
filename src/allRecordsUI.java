@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.List;
 
 public class allRecordsUI extends JFrame {
-    private Customer customer;
+    private final Customer customer;
 
     public allRecordsUI(Customer customer) {
         super("All Records");

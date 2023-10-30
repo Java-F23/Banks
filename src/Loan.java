@@ -1,13 +1,13 @@
 public class Loan {
     private static int nextLoanID = 1;
 
-    private int loanID;
-    private double loanAmount;
-    private int loanTerm; // Term in months
-    private double interestRate;
+    private final int loanID;
+    private final double loanAmount;
+    private final int loanTerm; // Term in months
+    private final double interestRate;
     private String status;
 
-    private int customerID;
+    private final int customerID;
 
     public Loan(double loanAmount, int loanTerm, double interestRate, int custID) {
         this.loanID = nextLoanID++;

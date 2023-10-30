@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.List;
 
 public class favoriteAccsUI extends JFrame {
-    private Customer customer;
+    private final Customer customer;
 
     public favoriteAccsUI(Customer customer) {
         super("Favorite Accounts");

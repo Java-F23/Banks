@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class getAccountsByCategoryUI extends JFrame {
-    private JComboBox<String> categoryComboBox;
-    private JTextArea resultTextArea;
-    private JButton getAccountsButton;
+    private final JComboBox<Integer> categoryComboBox;
+    private final JTextArea resultTextArea;
+    private final JButton getAccountsButton;
 
     public getAccountsByCategoryUI(ArrayList<Customer> customers) {
         setTitle("Get Accounts by Category");
@@ -19,7 +19,8 @@ public class getAccountsByCategoryUI extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
-        categoryComboBox = new JComboBox<>(new String[]{"Category 1", "Category 2", "Category 3"});
+        // Use integers as values for the categoryComboBox
+        categoryComboBox = new JComboBox<>(new Integer[]{1, 2, 3});
         resultTextArea = new JTextArea();
         resultTextArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(resultTextArea);
@@ -41,15 +42,15 @@ public class getAccountsByCategoryUI extends JFrame {
     }
 
     private void getAccountsByCategory(ArrayList<Customer> customers) {
-        String selectedCategory = (String) categoryComboBox.getSelectedItem();
-        int category = getCategoryNumber(selectedCategory);
+        int selectedCategory = (Integer) categoryComboBox.getSelectedItem();
+        List<BankAccount> categoryAccounts = getAccountsByCategory(selectedCategory, customers);
 
-        if (category == -1) {
-            JOptionPane.showMessageDialog(this, "Invalid category selected.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        // Display the results in the text area
+        displayCategoryAccounts(categoryAccounts);
+    }
 
-        ArrayList<BankAccount> categoryAccounts = new ArrayList<BankAccount>();
+    public static List<BankAccount> getAccountsByCategory(int category, List<Customer> customers) {
+        List<BankAccount> categoryAccounts = new ArrayList<>();
         for (Customer customer : customers) {
             for (BankAccount account : customer.getAvailableBankAccounts()) {
                 if (account.getAccountType() == category) {
@@ -57,22 +58,7 @@ public class getAccountsByCategoryUI extends JFrame {
                 }
             }
         }
-
-        // Display the results in the text area
-        displayCategoryAccounts(categoryAccounts);
-    }
-
-    private int getCategoryNumber(String category) {
-        // Map category name to category number
-        if (category.equals("Category 1")) {
-            return 1;
-        } else if (category.equals("Category 2")) {
-            return 2;
-        } else if (category.equals("Category 3")) {
-            return 3;
-        } else {
-            return -1; // Invalid category
-        }
+        return categoryAccounts;
     }
 
     private void displayCategoryAccounts(List<BankAccount> categoryAccounts) {

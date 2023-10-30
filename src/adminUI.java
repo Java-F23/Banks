@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class adminUI extends JFrame {
 
-    private Admin currAdmin;
-    private ArrayList<Customer> allCusts;
-    private int height;
-    private int width;
-    private JPanel mainPanel;
+    private final Admin currAdmin;
+    private final ArrayList<Customer> allCusts;
+    private final int height;
+    private final int width;
+    private final JPanel mainPanel;
 
     public adminUI() {
         setTitle("");

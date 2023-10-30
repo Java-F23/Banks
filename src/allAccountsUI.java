@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class allAccountsUI extends JFrame {
-    private Customer customer;
+    private final Customer customer;
 
     public allAccountsUI(Customer customer) {
         super("All Accounts");

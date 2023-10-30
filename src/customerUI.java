@@ -6,10 +6,11 @@ import java.awt.event.ActionListener;
 public class customerUI extends JFrame{
     //private buttons
 
-    private Customer currCustomer;
-    private JPanel mainPanel;
-    private int height;
-    private int width;
+    private final Customer currCustomer;
+    private final JPanel mainPanel;
+    private final int height;
+    private final int width;
+    private Bank bank;
 
     public customerUI()
     {
@@ -19,11 +20,11 @@ public class customerUI extends JFrame{
         mainPanel = new JPanel();
         currCustomer = new Customer();
         setResizable(false);
-
     }
 
-    public customerUI(String frameName, int h, int w, Customer cust)
+    public customerUI(String frameName, int h, int w, Customer cust, Bank b)
     {
+        this.bank = b;
         currCustomer = cust;
         mainPanel = new JPanel();
         setTitle(frameName);
@@ -31,7 +32,7 @@ public class customerUI extends JFrame{
         height = h;
         this.setSize(width, height);
         setResizable(false);
-        mainPanel.setLayout(new GridLayout(12, 1, 0, 10));
+        mainPanel.setLayout(new GridLayout(11, 1, 0, 10));
         mainPanel.setBackground(new Color(240, 240, 240));
         // Create a label to display customer information
         JLabel customerInfoLabel = new JLabel("Welcome, " + cust.getName() + " (ID: " + cust.getId() + ")");
@@ -43,7 +44,6 @@ public class customerUI extends JFrame{
         JButton[] buttons = {
                 createStyledButton("View Available Accounts"),
                 createStyledButton("Search Accounts"),
-                createStyledButton("View Account Details"),
                 createStyledButton("Mark Account as Favorite"),
                 createStyledButton("Deposit Money"),
                 createStyledButton("Withdraw Money"),
@@ -80,19 +80,12 @@ public class customerUI extends JFrame{
         buttons[2].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for viewing account details
-            }
-        });
-
-        buttons[3].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 markFavoriteAccountUI markAcc = new markFavoriteAccountUI(currCustomer);
                 markAcc.setVisible(true);
             }
         });
 
-        buttons[4].addActionListener(new ActionListener() {
+        buttons[3].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 depositUI deposit = new depositUI(currCustomer);
@@ -100,7 +93,7 @@ public class customerUI extends JFrame{
             }
         });
 
-        buttons[5].addActionListener(new ActionListener() {
+        buttons[4].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 withdrawUI withdraw = new withdrawUI(currCustomer);
@@ -108,7 +101,7 @@ public class customerUI extends JFrame{
             }
         });
 
-        buttons[6].addActionListener(new ActionListener() {
+        buttons[5].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 favoriteAccsUI favAccs = new favoriteAccsUI(currCustomer);
@@ -116,7 +109,7 @@ public class customerUI extends JFrame{
             }
         });
 
-        buttons[7].addActionListener(new ActionListener() {
+        buttons[6].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 transferBetweenAccsUI transferUI = new transferBetweenAccsUI(currCustomer);
@@ -124,7 +117,7 @@ public class customerUI extends JFrame{
             }
         });
 
-        buttons[8].addActionListener(new ActionListener() {
+        buttons[7].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 allRecordsUI viewRecsUI = new allRecordsUI(currCustomer);
@@ -132,7 +125,7 @@ public class customerUI extends JFrame{
             }
         });
 
-        buttons[9].addActionListener(new ActionListener() {
+        buttons[8].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 viewAccountRecordsUI viewAccRecs = new viewAccountRecordsUI(currCustomer);
@@ -140,10 +133,11 @@ public class customerUI extends JFrame{
             }
         });
 
-        buttons[10].addActionListener(new ActionListener() {
+        buttons[9].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for applying for a loan
+                applyForLoanUI applyLoanUI = new applyForLoanUI(currCustomer, bank);
+                applyLoanUI.setVisible(true);
             }
         });
     }

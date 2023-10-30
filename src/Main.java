@@ -22,7 +22,7 @@ public class Main {
         admin.addAccountType(1, "Savings Account", "Interest-bearing account");
         admin.addAccountType(2, "Checking Account", "No interest");
         admin.addAccountType(3, "Business Account", "For business use");
-        mainUI mainWindow = new mainUI("Main Window", 150, 600, admin, customers);
+        mainUI mainWindow = new mainUI("Main Window", 150, 600, admin, customers, bank);
 //        adminUI adminWindow = new adminUI("Admin Section", 400, 400, admin);
 //        customerUI custWindow = new customerUI("Customer Section", 400, 400, customer1); //change it later so that each cutomer is sent after logging in
 //        SwingUtilities.invokeLater(()-> {

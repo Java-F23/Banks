@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class markFavoriteAccountUI extends JFrame {
-    private Customer customer;
-    private JComboBox<String> accountComboBox;
+    private final Customer customer;
+    private final JComboBox<String> accountComboBox;
 
     public markFavoriteAccountUI(Customer customer) {
         super("Mark Account as Favorite");

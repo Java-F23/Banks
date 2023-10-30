@@ -5,14 +5,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class loginCustomerUI extends JFrame {
-    private JLabel nameLabel;
-    private JTextField custIDField;
-    private JButton loginButton;
+    private final JLabel nameLabel;
+    private final JTextField custIDField;
+    private final JButton loginButton;
 
-    private ArrayList<Customer> allCustomers;
+    private final ArrayList<Customer> allCustomers;
+    private final Bank bank;
 
-    public loginCustomerUI(ArrayList<Customer> customers) {
+    public loginCustomerUI(ArrayList<Customer> customers, Bank b) {
         super("Customer Login");
+        this.bank = b;
         this.setSize(400, 150);
         this.setLayout(new GridLayout(3, 1));
         this.setLocationRelativeTo(null);
@@ -61,7 +63,7 @@ public class loginCustomerUI extends JFrame {
 
     private void openCustomerUI(Customer customer) {
         // Create and display the CustomerUI for the authenticated customer
-        customerUI customerUI = new customerUI("Customer Panel", 400, 400, customer);
+        customerUI customerUI = new customerUI("Customer Panel", 400, 400, customer, bank);
         customerUI.setVisible(true);
     }
 }

@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class searchAccountsUI extends JFrame {
-    private Customer customer;
+    private final Customer customer;
 
-    private JTextField accountTypeField;
-    private JTextField minBalanceField;
-    private JTextField maxBalanceField;
-    private JButton searchButton;
-    private JTable table;
+    private final JTextField accountTypeField;
+    private final JTextField minBalanceField;
+    private final JTextField maxBalanceField;
+    private final JButton searchButton;
+    private final JTable table;
 
     public searchAccountsUI(Customer customer) {
         super("Search Accounts");

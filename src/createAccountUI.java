@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class createAccountUI extends JFrame {
-    private JComboBox<String> accountTypeComboBox;
-    private JTextField initialBalanceField;
-    private JTextField customerIdField;
-    private JButton createAccountButton;
+    private final JComboBox<String> accountTypeComboBox;
+    private final JTextField initialBalanceField;
+    private final JTextField customerIdField;
+    private final JButton createAccountButton;
 
-    private ArrayList<Customer> customers;
+    private final ArrayList<Customer> customers;
 
     public createAccountUI(Admin admin, ArrayList<Customer> custs) {
         customers =custs;

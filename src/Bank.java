@@ -3,12 +3,12 @@ import java.util.List;
 
 public class Bank {
 
-    private String bankName;
-    private String address;
-    private List<Admin> admins;
-    private List<Customer> customers;
-    private List<BankAccount> accounts;
-    private List<Loan> loans;
+    private final String bankName;
+    private final String address;
+    private final List<Admin> admins;
+    private final List<Customer> customers;
+    private final List<BankAccount> accounts;
+    private final List<Loan> loans;
 
     public Bank(String name, String location) {
         this.customers = new ArrayList<>();

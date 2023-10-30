@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class generateReportsUI extends JFrame {
-    private JTable reportsTable;
-    private JScrollPane scrollPane;
-    private JButton generateButton;
+    private final JTable reportsTable;
+    private final JScrollPane scrollPane;
+    private final JButton generateButton;
 
     public generateReportsUI(List<BankAccount> accounts) {
         setTitle("Generate Reports");

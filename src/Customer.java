@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Customer {
-    private int id;
-    private String name;
-    private ArrayList<BankAccount> bankAccounts;
-    private ArrayList<BankAccount> favoriteAccounts;
+    private final int id;
+    private final String name;
+    private final ArrayList<BankAccount> bankAccounts;
+    private final ArrayList<BankAccount> favoriteAccounts;
 
-    private List<Loan> loanApplications;
+    private final List<Loan> loanApplications;
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public Customer()
     {

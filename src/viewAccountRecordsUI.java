@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class viewAccountRecordsUI extends JFrame {
-    private Customer customer;
-    private JComboBox<BankAccount> accountComboBox;
+    private final Customer customer;
+    private final JComboBox<BankAccount> accountComboBox;
 
     public viewAccountRecordsUI(Customer customer) {
         super("View Account Records");

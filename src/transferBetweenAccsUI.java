@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class transferBetweenAccsUI extends JFrame {
-    private Customer customer;
-    private JComboBox<String> sourceAccountComboBox;
-    private JComboBox<String> targetAccountComboBox;
-    private JTextField amountField;
+    private final Customer customer;
+    private final JComboBox<String> sourceAccountComboBox;
+    private final JComboBox<String> targetAccountComboBox;
+    private final JTextField amountField;
 
     public transferBetweenAccsUI(Customer customer) {
         super("Transfer Between Accounts");

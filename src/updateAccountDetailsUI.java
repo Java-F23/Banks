@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class updateAccountDetailsUI extends JFrame {
-    private JComboBox<String> accountTypeComboBox;
-    private JTextField accountNumberField;
-    private JTextField balanceField;
-    private JButton updateButton;
+    private final JComboBox<String> accountTypeComboBox;
+    private final JTextField accountNumberField;
+    private final JTextField balanceField;
+    private final JButton updateButton;
 
-    private List<BankAccountType> accountTypes;
+    private final List<BankAccountType> accountTypes;
 
     public updateAccountDetailsUI(List<BankAccount> accounts, List<BankAccountType> accountTypes) {
         this.accountTypes = accountTypes;
