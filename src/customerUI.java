@@ -119,21 +119,24 @@ public class customerUI extends JFrame{
         buttons[7].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for transferring between accounts
+                transferBetweenAccsUI transferUI = new transferBetweenAccsUI(currCustomer);
+                transferUI.setVisible(true);
             }
         });
 
         buttons[8].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for viewing all activities
+                allRecordsUI viewRecsUI = new allRecordsUI(currCustomer);
+                viewRecsUI.setVisible(true);
             }
         });
 
         buttons[9].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement the action for viewing activity of an account
+                viewAccountRecordsUI viewAccRecs = new viewAccountRecordsUI(currCustomer);
+                viewAccRecs.setVisible(true);
             }
         });
 
