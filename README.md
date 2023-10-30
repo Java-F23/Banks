@@ -1,4 +1,4 @@
-# Mohamed Hashish - 900201220 - Bank System
+# Bank System - Mohamed Hashish - 900201220
 Banking System in implemented in Java
 
 Sprint 1: (1/10/2023 -> 15/10/2023):
