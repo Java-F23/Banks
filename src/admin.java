@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 class admin {
     private final String name;
@@ -32,7 +32,6 @@ class admin {
         // Create a new account with the specified account type
         BankAccount newAccount = new BankAccount(accountType, balance, customerID);
         accounts.add(newAccount);
-        System.out.println("Account created with account number: " + newAccount.getAccountNumber());
         return newAccount;
     }
 
