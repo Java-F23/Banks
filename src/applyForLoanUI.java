@@ -35,40 +35,34 @@ public class applyForLoanUI extends JFrame {
         inputPanel.add(applyLoanButton);
 
         this.add(inputPanel, BorderLayout.CENTER);
-
-        applyLoanButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                applyForLoan(cust, bank);
-            }
-        });
     }
 
-    private void applyForLoan(customer cust, Bank bank) {
-        try {
-            double loanAmount = Double.parseDouble(loanAmountField.getText());
-            int loanTerm = Integer.parseInt(loanTermField.getText());
-            double interestRate = Double.parseDouble(interestRateField.getText());
+    public JButton getApplyLoanButton()
+    {
+        return applyLoanButton;
+    }
 
-            if (loanAmount <= 0 || loanTerm <= 0 || interestRate <= 0) {
-                JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid loan details.", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                // Convert interest rate to decimal
-                interestRate = interestRate / 100;
+    public JTextField getLoanAmountField() {
+        return loanAmountField;
+    }
 
-                // Create a new loan
-                Loan loan = new Loan(loanAmount, loanTerm, interestRate);
+    public JTextField getLoanTermField() {
+        return loanTermField;
+    }
 
-                // Add the loan to the bank
-                bank.addLoan(loan);
-                cust.addLoan(loan);
+    public JTextField getInterestRateField() {
+        return interestRateField;
+    }
 
-                // Inform the customer that the loan application was successful
-                JOptionPane.showMessageDialog(this, "Loan application submitted successfully.", "Loan Application", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (NumberFormatException ex) {
-            // Display an error message for invalid input
-            JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid loan details.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    public void displayErrorMessage(String errorMessage) {
+        displayMessage(errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void displaySuccessMessage(String successMessage) {
+        displayMessage(successMessage, "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void displayMessage(String message, String title, int messageType) {
+        JOptionPane.showMessageDialog(this, message, title, messageType);
     }
 }

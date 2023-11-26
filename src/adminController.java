@@ -31,7 +31,7 @@ public class adminController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 createAccountUI accountUI = new createAccountUI(admin, customers);
-                accountUI.setVisible(true);
+                createAccountController controller = new createAccountController(accountUI, admin, customers);
             }
         });
 
@@ -39,7 +39,7 @@ public class adminController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 updateAccountDetailsUI updateDetails = new updateAccountDetailsUI(admin.getBankAccounts(), admin.getBankAccountTypes());
-                updateDetails.setVisible(true);
+                updateAccountDetailsController controller = new updateAccountDetailsController(updateDetails, admin.getBankAccounts(), admin.getBankAccountTypes());
             }
         });
 

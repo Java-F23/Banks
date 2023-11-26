@@ -43,31 +43,35 @@ public class createAccountUI extends JFrame {
         panel.add(new JLabel()); // Empty label for spacing
         panel.add(createAccountButton);
 
-        createAccountButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Get the selected account type, initial balance, and customer ID
-                int selectedAccountType = accountTypeComboBox.getSelectedIndex();
-                int initialBalance = Integer.parseInt(initialBalanceField.getText());
-                int customerId = Integer.parseInt(customerIdField.getText());
+        this.add(panel);
+    }
 
-                customer customer = Main.findCustomerByID(customers, customerId);
-                if (customer == null) {
-                    // Display an error message if the customer is not found
-                    JOptionPane.showMessageDialog(createAccountUI.this, "Customer not found. Please enter a valid customer ID.");
-                } else {
-                    // Create the bank account using admin and the provided data
-                    BankAccount newAcc = admin.createNewAccount(selectedAccountType + 1, initialBalance, customerId);
-                    customer.addBankAccount(newAcc);
-                    // Display a success message using JOptionPane
-                    JOptionPane.showMessageDialog(createAccountUI.this, "Account created successfully!\nAccount Number: " + newAcc.getAccountNumber());
+    public JComboBox<String> getAccountTypeComboBox() {
+        return accountTypeComboBox;
+    }
 
-                    // Close the create account window
-                    dispose();
-                }
-            }
-        });
+    public JTextField getInitialBalanceField() {
+        return initialBalanceField;
+    }
 
-        add(panel);
+    public JTextField getCustomerIdField() {
+        return customerIdField;
+    }
+
+    public void displayErrorMessage(String errorMessage) {
+        displayMessage(errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void displaySuccessMessage(String successMessage) {
+        displayMessage(successMessage, "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void displayMessage(String message, String title, int messageType) {
+        JOptionPane.showMessageDialog(this, message, title, messageType);
+    }
+
+    public JButton getButton()
+    {
+        return this.createAccountButton;
     }
 }

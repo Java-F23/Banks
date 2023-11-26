@@ -42,38 +42,34 @@ public class updateAccountDetailsUI extends JFrame {
         panel.add(balanceField);
         panel.add(new JLabel()); // Empty label for spacing
         panel.add(updateButton);
-
-        updateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    int accountNumber = Integer.parseInt(accountNumberField.getText());
-                    int selectedAccountTypeIndex = accountTypeComboBox.getSelectedIndex();
-                    int newAccountType = accountTypes.get(selectedAccountTypeIndex).getType();
-                    double newBalance = Double.parseDouble(balanceField.getText());
-
-                    BankAccount accountToUpdate = null;
-                    for (BankAccount account : accounts) {
-                        if (account.getAccountNumber() == accountNumber) {
-                            accountToUpdate = account;
-                            break;
-                        }
-                    }
-
-                    if (accountToUpdate == null) {
-                        JOptionPane.showMessageDialog(updateAccountDetailsUI.this, "Account not found.");
-                        return;
-                    }
-
-                    // Now update the account details.
-                    accountToUpdate.updateAccount(newAccountType, newBalance);
-                    JOptionPane.showMessageDialog(updateAccountDetailsUI.this, "Account details updated.");
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(updateAccountDetailsUI.this, "Invalid input. Please check the data entered.");
-                }
-            }
-        });
-
         add(panel);
+    }
+
+    public JComboBox<String> getAccountTypeComboBox() {
+        return accountTypeComboBox;
+    }
+
+    public JTextField getAccountNumberField() {
+        return accountNumberField;
+    }
+
+    public JTextField getBalanceField() {
+        return balanceField;
+    }
+
+    public JButton getUpdateButton() {
+        return updateButton;
+    }
+
+    public void displayErrorMessage(String errorMessage) {
+        displayMessage(errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void displaySuccessMessage(String successMessage) {
+        displayMessage(successMessage, "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void displayMessage(String message, String title, int messageType) {
+        JOptionPane.showMessageDialog(this, message, title, messageType);
     }
 }

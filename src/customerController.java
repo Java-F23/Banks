@@ -138,6 +138,6 @@ public class customerController {
 
     private void applyForLoan() {
         applyForLoanUI applyLoanUI = new applyForLoanUI(customer, bank);
-        applyLoanUI.setVisible(true);
+        applyForLoanController controller = new applyForLoanController(applyLoanUI, customer, bank);
     }
 }
