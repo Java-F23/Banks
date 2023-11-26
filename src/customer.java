@@ -5,9 +5,8 @@ import java.util.List;
 public class customer {
     private final int id;
     private final String name;
-    private final ArrayList<BankAccount> bankAccounts;
+    private ArrayList<BankAccount> bankAccounts;
     private final ArrayList<BankAccount> favoriteAccounts;
-
     private final List<Loan> loanApplications;
 
     public customer(int id, String name) {
@@ -52,6 +51,11 @@ public class customer {
         } else {
             JOptionPane.showMessageDialog(null, "Account not found.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public void setBankAccounts(ArrayList<BankAccount> acc)
+    {
+        this.bankAccounts = acc;
     }
 
     public List<BankAccount> getFavoriteAccounts() {

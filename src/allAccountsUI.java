@@ -9,7 +9,7 @@ public class allAccountsUI extends JFrame {
     public allAccountsUI(customer customer) {
         super("All Accounts");
         this.customer = customer;
-        this.setSize(600, 400);
+        this.setSize(800, 400);
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);
 
@@ -17,12 +17,12 @@ public class allAccountsUI extends JFrame {
         ArrayList<BankAccount> bankAccounts = this.customer.getAvailableBankAccounts();
 
         // Define the table model with appropriate column names
-        String[] columnNames = {"Account ID", "Balance"};
+        String[] columnNames = {"Account ID", "Account Type", "Balance"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         // Populate the table model with data
         for (BankAccount account : bankAccounts) {
-            Object[] rowData = {account.getAccountNumber(), "$" + account.getBalance()};
+            Object[] rowData = {account.getAccountNumber(), getAccountTypeName(account.getAccountType()), "$" + account.getBalance()};
             model.addRow(rowData);
         }
 
@@ -33,5 +33,20 @@ public class allAccountsUI extends JFrame {
         // Add the table to a scroll pane
         JScrollPane scrollPane = new JScrollPane(table);
         this.add(scrollPane, BorderLayout.CENTER);
+    }
+
+    // Helper method to get account type name based on account type ID
+    private String getAccountTypeName(int accountType) {
+        // Replace this with logic to get the account type name based on the account type ID
+        switch (accountType) {
+            case 1:
+                return "Savings Account";
+            case 2:
+                return "Checking Account";
+            case 3:
+                return "Business Account";
+            default:
+                return "Unknown Type";
+        }
     }
 }

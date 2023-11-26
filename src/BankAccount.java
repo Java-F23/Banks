@@ -17,6 +17,14 @@ class BankAccount {
         this.activityLog = new ArrayList<>();
     }
 
+    public BankAccount(int accNum, int accountType, double initialBalance, int customerID) {
+        this.accountNumber = accNum;
+        this.accountType = accountType;
+        this.balance = initialBalance;
+        this.customerID = customerID; // Set the customer's ID
+        this.activityLog = new ArrayList<>();
+    }
+
     public int getCustomerID() {
         return customerID; // Getter for customerID
     }

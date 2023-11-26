@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 
 class admin {
     private final String name;
-    private final ArrayList<BankAccount> accounts;
+    private ArrayList<BankAccount> accounts;
     private final ArrayList<BankAccountType> accountTypes;
     private final Scanner scanner;
 
@@ -45,6 +45,11 @@ class admin {
 //            System.out.println("Invalid input. Please enter a valid number.");
             scanner.nextLine(); // Consume the invalid input
         }
+    }
+
+    public void setAccounts(ArrayList<BankAccount> acc)
+    {
+        this.accounts = acc;
     }
 
 }

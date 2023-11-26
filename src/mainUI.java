@@ -13,7 +13,7 @@ public class mainUI extends JFrame {
     private final ArrayList<customer> allCustomers;
     private final Bank bank;
 
-    public mainUI(String frameName, int h, int w, admin a, ArrayList<customer> custs, Bank b) {
+    public mainUI(String frameName, int h, int w, admin a, ArrayList<customer> custs, Bank b, ArrayList<BankAccount> accounts) {
         this.bank = b;
         adminUIButton = createStyledButton("Admin App");
         customerUIButton = createStyledButton("Customer App");
@@ -21,6 +21,7 @@ public class mainUI extends JFrame {
         title = frameName;
         admin = a;
         allCustomers = custs;
+        admin.setAccounts(accounts);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle(title);
         this.setSize(w, h);

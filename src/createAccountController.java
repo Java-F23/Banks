@@ -37,7 +37,6 @@ public class createAccountController {
                         customer.addBankAccount(newAcc);
                         // Display a success message using JOptionPane
                         createAccountUI.displaySuccessMessage("Account created successfully!\nAccount Number: " + newAcc.getAccountNumber());
-
                         // Close the create account window
                         createAccountUI.dispose();
                     }
