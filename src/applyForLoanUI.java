@@ -2,19 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
 
 public class applyForLoanUI extends JFrame {
-    private final Customer customer;
 
     private final JTextField loanAmountField;
     private final JTextField loanTermField;
     private final JTextField interestRateField;
     private final JButton applyLoanButton;
 
-    public applyForLoanUI(Customer customer, Bank bank) {
+    public applyForLoanUI(Customer cust, Bank bank) {
         super("Apply for Loan");
-        this.customer = customer;
         this.setSize(400, 200);
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);
@@ -42,12 +39,12 @@ public class applyForLoanUI extends JFrame {
         applyLoanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                applyForLoan(bank);
+                applyForLoan(cust, bank);
             }
         });
     }
 
-    private void applyForLoan(Bank bank) {
+    private void applyForLoan(Customer cust, Bank bank) {
         try {
             double loanAmount = Double.parseDouble(loanAmountField.getText());
             int loanTerm = Integer.parseInt(loanTermField.getText());
@@ -60,10 +57,11 @@ public class applyForLoanUI extends JFrame {
                 interestRate = interestRate / 100;
 
                 // Create a new loan
-                Loan loan = new Loan(loanAmount, loanTerm, interestRate, customer.getId());
+                Loan loan = new Loan(loanAmount, loanTerm, interestRate);
 
                 // Add the loan to the bank
                 bank.addLoan(loan);
+                cust.addLoan(loan);
 
                 // Inform the customer that the loan application was successful
                 JOptionPane.showMessageDialog(this, "Loan application submitted successfully.", "Loan Application", JOptionPane.INFORMATION_MESSAGE);

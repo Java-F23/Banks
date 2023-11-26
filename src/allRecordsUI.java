@@ -4,11 +4,9 @@ import java.awt.*;
 import java.util.List;
 
 public class allRecordsUI extends JFrame {
-    private final Customer customer;
 
     public allRecordsUI(Customer customer) {
         super("All Records");
-        this.customer = customer;
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);

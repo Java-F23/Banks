@@ -5,12 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class viewAccountRecordsUI extends JFrame {
-    private final Customer customer;
     private final JComboBox<BankAccount> accountComboBox;
 
     public viewAccountRecordsUI(Customer customer) {
         super("View Account Records");
-        this.customer = customer;
         this.setSize(700, 150);
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);

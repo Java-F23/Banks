@@ -12,16 +12,6 @@ public class customerUI extends JFrame{
     private final int width;
     private Bank bank;
 
-    public customerUI()
-    {
-        setTitle("");
-        width = 400;
-        height = 400;
-        mainPanel = new JPanel();
-        currCustomer = new Customer();
-        setResizable(false);
-    }
-
     public customerUI(String frameName, int h, int w, Customer cust, Bank b)
     {
         this.bank = b;

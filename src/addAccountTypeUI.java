@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.ArrayList;
 
 public class addAccountTypeUI extends JFrame {
@@ -71,9 +70,8 @@ public class addAccountTypeUI extends JFrame {
                 JOptionPane.showMessageDialog(this, "Account type number already exists. Please choose a different number.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 String name = nameField.getText();
-                String features = featuresField.getText();
 
-                BankAccountType accountType = new BankAccountType(type, name, features);
+                BankAccountType accountType = new BankAccountType(type, name);
                 accountTypes.add(accountType);
                 JOptionPane.showMessageDialog(this, "Account type added successfully!");
                 dispose();

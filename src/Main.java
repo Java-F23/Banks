@@ -1,16 +1,11 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.InputMismatchException;
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        Bank bank = new Bank("QNU", "Maadi");
-        Admin admin = new Admin("Mohamed Hashish", 2);
+        Bank bank = new Bank();
+        Admin admin = new Admin("Mohamed Hashish");
         bank.addAdmin(admin);
         Customer customer1 = new Customer(1, "John Doe");
         Customer customer2 = new Customer(2, "Jane Smith");
@@ -19,9 +14,9 @@ public class Main {
         bank.addCustomer(customer2);
         customers.add(customer1);
         customers.add(customer2);
-        admin.addAccountType(1, "Savings Account", "Interest-bearing account");
-        admin.addAccountType(2, "Checking Account", "No interest");
-        admin.addAccountType(3, "Business Account", "For business use");
+        admin.addAccountType(1, "Savings Account");
+        admin.addAccountType(2, "Checking Account");
+        admin.addAccountType(3, "Business Account");
         mainUI mainWindow = new mainUI("Main Window", 150, 600, admin, customers, bank);
 //        adminUI adminWindow = new adminUI("Admin Section", 400, 400, admin);
 //        customerUI custWindow = new customerUI("Customer Section", 400, 400, customer1); //change it later so that each cutomer is sent after logging in

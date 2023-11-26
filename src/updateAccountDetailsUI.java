@@ -10,10 +10,7 @@ public class updateAccountDetailsUI extends JFrame {
     private final JTextField balanceField;
     private final JButton updateButton;
 
-    private final List<BankAccountType> accountTypes;
-
     public updateAccountDetailsUI(List<BankAccount> accounts, List<BankAccountType> accountTypes) {
-        this.accountTypes = accountTypes;
         setTitle("Update Account Details");
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

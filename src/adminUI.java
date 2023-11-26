@@ -12,17 +12,6 @@ public class adminUI extends JFrame {
     private final int width;
     private final JPanel mainPanel;
 
-    public adminUI() {
-        setTitle("");
-        width = 400;
-        height = 400;
-        this.setSize(400, 400);
-        mainPanel = new JPanel();
-        currAdmin = new Admin();
-        allCusts = new ArrayList<Customer>();
-        setResizable(false);
-    }
-
     public adminUI(String frameName, int h, int w, Admin admin, ArrayList<Customer> customers) {
         allCusts = customers;
         mainPanel = new JPanel();

@@ -36,12 +36,6 @@ class BankAccount {
         activityLog.add(activity);
     }
 
-    public void printAccountActivities() {
-        for (String activity : activityLog) {
-            System.out.println(activity);
-        }
-    }
-
     public List<String> getAccountActivities() {
         return activityLog;
     }
@@ -66,26 +60,14 @@ class BankAccount {
                 addActivity("Withdrawal: " + amount); // Logging the withdrawal activity
                 return 1;
             } else if (amount <= 0) {
-                System.out.println("Invalid withdrawal amount.");
                 return 0;
             } else {
-                System.out.println("Insufficient balance for withdrawal.");
                 return 0;
             }
         } catch (Exception e) {
             System.out.println("An error occurred during the withdrawal.");
         }
         return 0;
-    }
-
-
-    public static BankAccount getBankAccountByNumber(List<BankAccount> accounts, int accountNumber) {
-        for (BankAccount account : accounts) {
-            if (account.getAccountNumber() == accountNumber) {
-                return account;
-            }
-        }
-        return null;
     }
 
 

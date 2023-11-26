@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class mainUI extends JFrame {
     protected String title;
-    protected int width;
-    protected int height;
     protected JPanel mainPanel;
     private final JButton adminUIButton;
     private final JButton customerUIButton;
@@ -15,27 +13,12 @@ public class mainUI extends JFrame {
     private final ArrayList<Customer> allCustomers;
     private final Bank bank;
 
-    public mainUI() {
-        title = "";
-        width = 800;
-        height = 600;
-        mainPanel = new JPanel();
-        adminUIButton = new JButton();
-        customerUIButton = new JButton();
-        admin = new Admin();
-        allCustomers = new ArrayList<Customer>();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        bank = new Bank("QNB", "Maadi");
-    }
-
     public mainUI(String frameName, int h, int w, Admin a, ArrayList<Customer> custs, Bank b) {
         this.bank = b;
         adminUIButton = createStyledButton("Admin App");
         customerUIButton = createStyledButton("Customer App");
         mainPanel = new JPanel();
         title = frameName;
-        height = h;
-        width = w;
         admin = a;
         allCustomers = custs;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -3,20 +3,14 @@ import java.util.List;
 
 public class Bank {
 
-    private final String bankName;
-    private final String address;
     private final List<Admin> admins;
     private final List<Customer> customers;
-    private final List<BankAccount> accounts;
     private final List<Loan> loans;
 
-    public Bank(String name, String location) {
+    public Bank() {
         this.customers = new ArrayList<>();
-        this.accounts = new ArrayList<>();
         this.loans = new ArrayList<>();
         this.admins = new ArrayList<>();
-        this.bankName = name;
-        this.address = location;
     }
 
     // Methods for managing customers
@@ -26,20 +20,6 @@ public class Bank {
 
     public void addAdmin(Admin admin) {
         admins.add(admin);
-    }
-
-    public Customer findCustomerById(int customerId) {
-        for (Customer customer : customers) {
-            if (customer.getId() == customerId) {
-                return customer;
-            }
-        }
-        return null;
-    }
-
-    // Methods for managing accounts
-    public void addAccount(BankAccount account) {
-        accounts.add(account);
     }
 
     // Methods for managing loans
