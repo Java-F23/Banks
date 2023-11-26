@@ -137,7 +137,7 @@ public class customerController {
     }
 
     private void applyForLoan() {
-        applyForLoanUI applyLoanUI = new applyForLoanUI(customer, bank);
+        applyForLoanUI applyLoanUI = new applyForLoanUI();
         applyForLoanController controller = new applyForLoanController(applyLoanUI, customer, bank);
     }
 }

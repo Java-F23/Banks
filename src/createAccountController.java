@@ -4,13 +4,9 @@ import java.util.ArrayList;
 
 public class createAccountController {
     private final createAccountUI createAccountUI;
-    private final admin admin;
-    private final ArrayList<customer> customers;
 
     public createAccountController(createAccountUI createUI, admin admin, ArrayList<customer> customers) {
         this.createAccountUI = createUI;
-        this.admin = admin;
-        this.customers = customers;
 
         // Add action listener for the create account button directly
         this.createAccountUI.getButton().addActionListener(new ActionListener() {

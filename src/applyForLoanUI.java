@@ -10,7 +10,7 @@ public class applyForLoanUI extends JFrame {
     private final JTextField interestRateField;
     private final JButton applyLoanButton;
 
-    public applyForLoanUI(customer cust, Bank bank) {
+    public applyForLoanUI() {
         super("Apply for Loan");
         this.setSize(400, 200);
         this.setLayout(new BorderLayout());
