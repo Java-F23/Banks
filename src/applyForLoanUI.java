@@ -10,7 +10,7 @@ public class applyForLoanUI extends JFrame {
     private final JTextField interestRateField;
     private final JButton applyLoanButton;
 
-    public applyForLoanUI(Customer cust, Bank bank) {
+    public applyForLoanUI(customer cust, Bank bank) {
         super("Apply for Loan");
         this.setSize(400, 200);
         this.setLayout(new BorderLayout());
@@ -44,7 +44,7 @@ public class applyForLoanUI extends JFrame {
         });
     }
 
-    private void applyForLoan(Customer cust, Bank bank) {
+    private void applyForLoan(customer cust, Bank bank) {
         try {
             double loanAmount = Double.parseDouble(loanAmountField.getText());
             int loanTerm = Integer.parseInt(loanTermField.getText());

@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class depositUI extends JFrame {
-    private final Customer customer;
+    private final customer customer;
     private final JComboBox<String> accountComboBox; // Combo box for selecting an account
     private final JTextField amountField;
 
-    public depositUI(Customer customer) {
+    public depositUI(customer customer) {
         super("Deposit to Account");
         this.customer = customer;
         this.setSize(600, 150);

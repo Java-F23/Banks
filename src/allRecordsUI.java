@@ -5,7 +5,7 @@ import java.util.List;
 
 public class allRecordsUI extends JFrame {
 
-    public allRecordsUI(Customer customer) {
+    public allRecordsUI(customer customer) {
         super("All Records");
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());

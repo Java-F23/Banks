@@ -7,7 +7,7 @@ import java.util.List;
 public class viewAccountRecordsUI extends JFrame {
     private final JComboBox<BankAccount> accountComboBox;
 
-    public viewAccountRecordsUI(Customer customer) {
+    public viewAccountRecordsUI(customer customer) {
         super("View Account Records");
         this.setSize(700, 150);
         this.setLayout(new BorderLayout());

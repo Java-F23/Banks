@@ -4,9 +4,9 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class allAccountsUI extends JFrame {
-    private final Customer customer;
+    private final customer customer;
 
-    public allAccountsUI(Customer customer) {
+    public allAccountsUI(customer customer) {
         super("All Accounts");
         this.customer = customer;
         this.setSize(600, 400);

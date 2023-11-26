@@ -10,10 +10,10 @@ public class mainUI extends JFrame {
     private final JButton adminUIButton;
     private final JButton customerUIButton;
     private final Admin admin;
-    private final ArrayList<Customer> allCustomers;
+    private final ArrayList<customer> allCustomers;
     private final Bank bank;
 
-    public mainUI(String frameName, int h, int w, Admin a, ArrayList<Customer> custs, Bank b) {
+    public mainUI(String frameName, int h, int w, Admin a, ArrayList<customer> custs, Bank b) {
         this.bank = b;
         adminUIButton = createStyledButton("Admin App");
         customerUIButton = createStyledButton("Customer App");
@@ -52,7 +52,7 @@ public class mainUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 adminUI adminPage = new adminUI("Admin Panel", 400, 400, admin, allCustomers);
-                adminPage.setVisible(true);
+                adminController controller = new adminController(adminPage, admin, allCustomers);
             }
         });
 

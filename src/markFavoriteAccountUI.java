@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class markFavoriteAccountUI extends JFrame {
-    private final Customer customer;
+    private final customer customer;
     private final JComboBox<String> accountComboBox;
 
-    public markFavoriteAccountUI(Customer customer) {
+    public markFavoriteAccountUI(customer customer) {
         super("Mark Account as Favorite");
         this.customer = customer;
         this.setSize(400, 150);

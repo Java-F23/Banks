@@ -10,10 +10,10 @@ public class createAccountUI extends JFrame {
     private final JTextField customerIdField;
     private final JButton createAccountButton;
 
-    private final ArrayList<Customer> customers;
+    private final ArrayList<customer> customers;
 
-    public createAccountUI(Admin admin, ArrayList<Customer> custs) {
-        customers =custs;
+    public createAccountUI(Admin admin, ArrayList<customer> custs) {
+        customers = custs;
         setTitle("Create Bank Account");
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -23,7 +23,7 @@ public class createAccountUI extends JFrame {
         panel.setLayout(new GridLayout(4, 2));
 
         JLabel accountTypeLabel = new JLabel("Account Type:");
-        String[] accountTypes = { "Savings Account", "Checking Account", "Business Account" };
+        String[] accountTypes = {"Savings Account", "Checking Account", "Business Account"};
         accountTypeComboBox = new JComboBox<>(accountTypes);
 
         JLabel initialBalanceLabel = new JLabel("Initial Balance:");
@@ -51,7 +51,7 @@ public class createAccountUI extends JFrame {
                 int initialBalance = Integer.parseInt(initialBalanceField.getText());
                 int customerId = Integer.parseInt(customerIdField.getText());
 
-                Customer customer = Main.findCustomerByID(customers, customerId);
+                customer customer = Main.findCustomerByID(customers, customerId);
                 if (customer == null) {
                     // Display an error message if the customer is not found
                     JOptionPane.showMessageDialog(createAccountUI.this, "Customer not found. Please enter a valid customer ID.");
@@ -60,7 +60,7 @@ public class createAccountUI extends JFrame {
                     BankAccount newAcc = admin.createNewAccount(selectedAccountType + 1, initialBalance, customerId);
                     customer.addBankAccount(newAcc);
                     // Display a success message using JOptionPane
-                    JOptionPane.showMessageDialog(createAccountUI.this, "Account created successfully!\nAccount Number: "+newAcc.getAccountNumber());
+                    JOptionPane.showMessageDialog(createAccountUI.this, "Account created successfully!\nAccount Number: " + newAcc.getAccountNumber());
 
                     // Close the create account window
                     dispose();

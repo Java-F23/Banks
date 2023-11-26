@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class searchAccountsUI extends JFrame {
-    private final Customer customer;
+    private final customer customer;
 
     private final JTextField accountTypeField;
     private final JTextField minBalanceField;
@@ -14,7 +14,7 @@ public class searchAccountsUI extends JFrame {
     private final JButton searchButton;
     private final JTable table;
 
-    public searchAccountsUI(Customer customer) {
+    public searchAccountsUI(customer customer) {
         super("Search Accounts");
         this.customer = customer;
         this.setSize(600, 400);

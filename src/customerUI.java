@@ -1,19 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.Arrays;
 
-public class customerUI extends JFrame{
+public class customerUI extends JFrame {
     //private buttons
 
-    private final Customer currCustomer;
+    private final customer currCustomer;
     private final JPanel mainPanel;
     private final int height;
     private final int width;
-    private Bank bank;
+    private final Bank bank;
 
-    public customerUI(String frameName, int h, int w, Customer cust, Bank b)
-    {
+    public customerUI(String frameName, int h, int w, customer cust, Bank b) {
         this.bank = b;
         currCustomer = cust;
         mainPanel = new JPanel();
@@ -50,86 +48,6 @@ public class customerUI extends JFrame{
 
         this.add(mainPanel);
         this.setLocationRelativeTo(null);
-// Add action listeners for the buttons
-        buttons[0].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                allAccountsUI viewAccs = new allAccountsUI(currCustomer);
-                viewAccs.setVisible(true);
-            }
-        });
-
-        buttons[1].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                searchAccountsUI searchUI = new searchAccountsUI(currCustomer);
-                searchUI.setVisible(true);
-            }
-        });
-
-        buttons[2].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                markFavoriteAccountUI markAcc = new markFavoriteAccountUI(currCustomer);
-                markAcc.setVisible(true);
-            }
-        });
-
-        buttons[3].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                depositUI deposit = new depositUI(currCustomer);
-                deposit.setVisible(true);
-            }
-        });
-
-        buttons[4].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                withdrawUI withdraw = new withdrawUI(currCustomer);
-                withdraw.setVisible(true);
-            }
-        });
-
-        buttons[5].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                favoriteAccsUI favAccs = new favoriteAccsUI(currCustomer);
-                favAccs.setVisible(true);
-            }
-        });
-
-        buttons[6].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                transferBetweenAccsUI transferUI = new transferBetweenAccsUI(currCustomer);
-                transferUI.setVisible(true);
-            }
-        });
-
-        buttons[7].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                allRecordsUI viewRecsUI = new allRecordsUI(currCustomer);
-                viewRecsUI.setVisible(true);
-            }
-        });
-
-        buttons[8].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                viewAccountRecordsUI viewAccRecs = new viewAccountRecordsUI(currCustomer);
-                viewAccRecs.setVisible(true);
-            }
-        });
-
-        buttons[9].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                applyForLoanUI applyLoanUI = new applyForLoanUI(currCustomer, bank);
-                applyLoanUI.setVisible(true);
-            }
-        });
     }
 
     private JButton createStyledButton(String text) {
@@ -140,5 +58,8 @@ public class customerUI extends JFrame{
         button.setFocusPainted(false); // Remove focus border
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // Change cursor to hand on hover
         return button;
+    }
+    public JButton[] getButtons() {
+        return Arrays.copyOfRange(mainPanel.getComponents(), 1, mainPanel.getComponentCount(), JButton[].class);
     }
 }

@@ -54,7 +54,7 @@ public class removeAccountTypeUI extends JFrame {
 
             if (typeToRemoveObject != null) {
                 accountTypes.remove(typeToRemoveObject);
-                JOptionPane.showMessageDialog(this, "Account type: "+typeName+" is removed successfully!");
+                JOptionPane.showMessageDialog(this, "Account type: " + typeName + " is removed successfully!");
                 dispose(); // Close the frame
             } else {
                 JOptionPane.showMessageDialog(this, "Account type not found.", "Error", JOptionPane.ERROR_MESSAGE);

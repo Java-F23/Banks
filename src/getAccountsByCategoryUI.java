@@ -10,7 +10,7 @@ public class getAccountsByCategoryUI extends JFrame {
     private final JTextArea resultTextArea;
     private final JButton getAccountsButton;
 
-    public getAccountsByCategoryUI(ArrayList<Customer> customers) {
+    public getAccountsByCategoryUI(ArrayList<customer> customers) {
         setTitle("Get Accounts by Category");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -41,7 +41,7 @@ public class getAccountsByCategoryUI extends JFrame {
         add(panel);
     }
 
-    private void getAccountsByCategory(ArrayList<Customer> customers) {
+    private void getAccountsByCategory(ArrayList<customer> customers) {
         int selectedCategory = (Integer) categoryComboBox.getSelectedItem();
         List<BankAccount> categoryAccounts = getAccountsByCategory(selectedCategory, customers);
 
@@ -49,9 +49,9 @@ public class getAccountsByCategoryUI extends JFrame {
         displayCategoryAccounts(categoryAccounts);
     }
 
-    public static List<BankAccount> getAccountsByCategory(int category, List<Customer> customers) {
+    public static List<BankAccount> getAccountsByCategory(int category, List<customer> customers) {
         List<BankAccount> categoryAccounts = new ArrayList<>();
-        for (Customer customer : customers) {
+        for (customer customer : customers) {
             for (BankAccount account : customer.getAvailableBankAccounts()) {
                 if (account.getAccountType() == category) {
                     categoryAccounts.add(account);

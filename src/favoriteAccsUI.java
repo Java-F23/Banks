@@ -4,7 +4,7 @@ import java.util.List;
 
 public class favoriteAccsUI extends JFrame {
 
-    public favoriteAccsUI(Customer customer) {
+    public favoriteAccsUI(customer customer) {
         super("Favorite Accounts");
         this.setSize(600, 400);
         this.setLayout(new BorderLayout());

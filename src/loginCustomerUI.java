@@ -8,11 +8,10 @@ public class loginCustomerUI extends JFrame {
     private final JLabel nameLabel;
     private final JTextField custIDField;
     private final JButton loginButton;
-
-    private final ArrayList<Customer> allCustomers;
+    private final ArrayList<customer> allCustomers;
     private final Bank bank;
 
-    public loginCustomerUI(ArrayList<Customer> customers, Bank b) {
+    public loginCustomerUI(ArrayList<customer> customers, Bank b) {
         super("Customer Login");
         this.bank = b;
         this.setSize(400, 150);
@@ -45,7 +44,7 @@ public class loginCustomerUI extends JFrame {
                 int customerID = Integer.parseInt(custIDField.getText());
                 boolean customerFound = false;
 
-                for (Customer customer : allCustomers) {
+                for (customer customer : allCustomers) {
                     if (customer.getId() == customerID) {
                         customerFound = true;
                         openCustomerUI(customer);
@@ -61,9 +60,9 @@ public class loginCustomerUI extends JFrame {
         });
     }
 
-    private void openCustomerUI(Customer customer) {
+    private void openCustomerUI(customer customer) {
         // Create and display the CustomerUI for the authenticated customer
-        customerUI customerUI = new customerUI("Customer Panel", 400, 400, customer, bank);
-        customerUI.setVisible(true);
+        customerUI ui = new customerUI("Customer App", 600, 400, customer, bank);
+        customerController controller = new customerController(ui, customer, bank);
     }
 }

@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class withdrawUI extends JFrame {
-    private final Customer customer;
+    private final customer customer;
     private final JComboBox<String> accountComboBox; // Combo box for selecting an account
     private final JTextField amountField;
 
-    public withdrawUI(Customer customer) {
+    public withdrawUI(customer customer) {
         super("Withdraw from Account");
         this.customer = customer;
         this.setSize(600, 150);
@@ -62,12 +62,9 @@ public class withdrawUI extends JFrame {
                 double amount = Double.parseDouble(amountField.getText());
                 List<BankAccount> accounts = customer.getAvailableBankAccounts();
                 BankAccount selectedAccount = accounts.get(selectedAccountIndex);
-                if (selectedAccount.withdraw(amount) == 1)
-                {
+                if (selectedAccount.withdraw(amount) == 1) {
                     JOptionPane.showMessageDialog(this, "Withdrawal successful.");
-                }
-                else
-                {
+                } else {
                     JOptionPane.showMessageDialog(this, "Withdrawal Failed!\nInvalid amount or insufficient balance.");
                 }
                 this.dispose(); // Close the frame after withdrawing

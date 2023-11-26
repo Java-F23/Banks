@@ -5,7 +5,7 @@ public class Loan {
     private final double loanAmount;
     private final int loanTerm; // Term in months
     private final double interestRate;
-    private String status;
+    private final String status;
 
     public Loan(double loanAmount, int loanTerm, double interestRate) {
         this.loanID = nextLoanID++;

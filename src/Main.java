@@ -7,9 +7,9 @@ public class Main {
         Bank bank = new Bank();
         Admin admin = new Admin("Mohamed Hashish");
         bank.addAdmin(admin);
-        Customer customer1 = new Customer(1, "John Doe");
-        Customer customer2 = new Customer(2, "Jane Smith");
-        ArrayList<Customer> customers = new ArrayList<>();
+        customer customer1 = new customer(1, "John Doe");
+        customer customer2 = new customer(2, "Jane Smith");
+        ArrayList<customer> customers = new ArrayList<>();
         bank.addCustomer(customer1);
         bank.addCustomer(customer2);
         customers.add(customer1);
@@ -105,8 +105,8 @@ public class Main {
 //        }
     }
 
-    public static Customer findCustomerByID(List<Customer> customers, int customerID) {
-        for (Customer customer : customers) {
+    public static customer findCustomerByID(List<customer> customers, int customerID) {
+        for (customer customer : customers) {
             if (customer.getId() == customerID) {
                 return customer;
             }

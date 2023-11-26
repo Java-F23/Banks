@@ -4,7 +4,7 @@ import java.util.List;
 public class Bank {
 
     private final List<Admin> admins;
-    private final List<Customer> customers;
+    private final List<customer> customers;
     private final List<Loan> loans;
 
     public Bank() {
@@ -14,7 +14,7 @@ public class Bank {
     }
 
     // Methods for managing customers
-    public void addCustomer(Customer customer) {
+    public void addCustomer(customer customer) {
         customers.add(customer);
     }
 

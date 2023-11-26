@@ -1,17 +1,16 @@
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class Customer {
+public class customer {
     private final int id;
     private final String name;
-    private ArrayList<BankAccount> bankAccounts;
-    private ArrayList<BankAccount> favoriteAccounts;
+    private final ArrayList<BankAccount> bankAccounts;
+    private final ArrayList<BankAccount> favoriteAccounts;
 
-    private List<Loan> loanApplications;
+    private final List<Loan> loanApplications;
 
-    public Customer(int id, String name) {
+    public customer(int id, String name) {
         this.id = id;
         this.name = name;
         this.bankAccounts = new ArrayList<>();
@@ -55,13 +54,11 @@ public class Customer {
         }
     }
 
-    public List<BankAccount> getFavoriteAccounts()
-    {
+    public List<BankAccount> getFavoriteAccounts() {
         return favoriteAccounts;
     }
 
-    public void addLoan(Loan currLoan)
-    {
+    public void addLoan(Loan currLoan) {
         this.loanApplications.add(currLoan);
     }
 
