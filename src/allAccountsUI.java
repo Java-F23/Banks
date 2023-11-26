@@ -16,7 +16,6 @@ public class allAccountsUI extends JFrame {
         // Get the available bank accounts for the customer
         ArrayList<BankAccount> bankAccounts = this.customer.getAvailableBankAccounts();
 
-        // Define the table model with appropriate column names
         String[] columnNames = {"Account ID", "Account Type", "Balance"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
