@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class createAccountUI extends JFrame {
@@ -12,7 +10,7 @@ public class createAccountUI extends JFrame {
 
     private final ArrayList<customer> customers;
 
-    public createAccountUI(Admin admin, ArrayList<customer> custs) {
+    public createAccountUI(admin admin, ArrayList<customer> custs) {
         customers = custs;
         setTitle("Create Bank Account");
         setSize(400, 200);

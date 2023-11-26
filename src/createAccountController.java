@@ -1,14 +1,13 @@
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class createAccountController {
     private final createAccountUI createAccountUI;
-    private final Admin admin;
+    private final admin admin;
     private final ArrayList<customer> customers;
 
-    public createAccountController(createAccountUI createUI, Admin admin, ArrayList<customer> customers) {
+    public createAccountController(createAccountUI createUI, admin admin, ArrayList<customer> customers) {
         this.createAccountUI = createUI;
         this.admin = admin;
         this.customers = customers;

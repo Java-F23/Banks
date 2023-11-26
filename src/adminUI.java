@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class adminUI extends JFrame {
-    private final Admin currAdmin;
+    private final admin currAdmin;
     private final ArrayList<customer> allCusts;
     private final int height;
     private final int width;
     private final JPanel mainPanel;
 
-    public adminUI(String frameName, int h, int w, Admin admin, ArrayList<customer> customers) {
+    public adminUI(String frameName, int h, int w, admin admin, ArrayList<customer> customers) {
         allCusts = customers;
         mainPanel = new JPanel();
         setTitle(frameName);

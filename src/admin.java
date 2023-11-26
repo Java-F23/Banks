@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-class Admin {
+class admin {
     private final String name;
     private final ArrayList<BankAccount> accounts;
     private final ArrayList<BankAccountType> accountTypes;
     private final Scanner scanner;
 
-    public Admin(String name) {
+    public admin(String name) {
         this.name = name;
         accounts = new ArrayList<>();
         accountTypes = new ArrayList<>();

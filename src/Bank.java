@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Bank {
 
-    private final List<Admin> admins;
+    private final List<admin> admins;
     private final List<customer> customers;
     private final List<Loan> loans;
 
@@ -18,7 +18,7 @@ public class Bank {
         customers.add(customer);
     }
 
-    public void addAdmin(Admin admin) {
+    public void addAdmin(admin admin) {
         admins.add(admin);
     }
 

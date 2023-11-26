@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         Bank bank = new Bank();
-        Admin admin = new Admin("Mohamed Hashish");
+        admin admin = new admin("Mohamed Hashish");
         bank.addAdmin(admin);
         customer customer1 = new customer(1, "John Doe");
         customer customer2 = new customer(2, "Jane Smith");

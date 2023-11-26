@@ -9,11 +9,11 @@ public class mainUI extends JFrame {
     protected JPanel mainPanel;
     private final JButton adminUIButton;
     private final JButton customerUIButton;
-    private final Admin admin;
+    private final admin admin;
     private final ArrayList<customer> allCustomers;
     private final Bank bank;
 
-    public mainUI(String frameName, int h, int w, Admin a, ArrayList<customer> custs, Bank b) {
+    public mainUI(String frameName, int h, int w, admin a, ArrayList<customer> custs, Bank b) {
         this.bank = b;
         adminUIButton = createStyledButton("Admin App");
         customerUIButton = createStyledButton("Customer App");

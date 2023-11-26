@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class adminController {
     private final adminUI adminUI;
-    private final Admin admin;
+    private final admin admin;
 
-    public adminController(adminUI adminUI, Admin admin, ArrayList<customer> customers) {
+    public adminController(adminUI adminUI, admin admin, ArrayList<customer> customers) {
         this.adminUI = adminUI;
         this.admin = admin;
 
